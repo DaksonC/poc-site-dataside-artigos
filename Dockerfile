@@ -5,10 +5,10 @@ FROM node:14
 WORKDIR /app
 
 # Copie os arquivos do pacote
-COPY package*.json ./
+COPY package.json yarn.lock ./
 
 # Instale as dependências
-RUN npm install
+RUN yarn install
 
 # Copie o restante dos arquivos do projeto
 COPY . .
@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 1337
 
 # Inicie o aplicativo Strapi
-CMD ["npm", "run", "start"]
+CMD ["yarn", "run", "start"]
+
